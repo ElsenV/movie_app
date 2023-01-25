@@ -5,7 +5,7 @@ const Index = () => {
   const genres = ["Movie", "Tv"];
   const sideMenu = ["Home", "Discover", "Trending", "Search"];
   return (
-    <div>
+    <div className="pl-4 md:pl-6 lg:pl-8 xl:pl-10">
       <ul>
         {sideMenu.map((item, i) => (
           <li>

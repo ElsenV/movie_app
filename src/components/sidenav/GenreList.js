@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CardList from "../container/CardList";
-
+import Pagination from "../pages/Pagination";
+import { useSelector } from "react-redux";
 
 const GenreList = () => {
-  const { genre, id } = useParams();
-  console.log(genre, id);
+  const page = useSelector((state) => state.page.value);
+  console.log("GENRE  LIST", page);
+  const { genre, name, id } = useParams();
   const [data, setData] = useState([]);
-  
- 
+
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await fetch(
-          `https://api.themoviedb.org/3/discover/${genre}?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${id}&page=4`
+          `https://api.themoviedb.org/3/discover/${genre}?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${id}&page=${page}`
         );
         const res2 = await res.json();
         setData(res2.results);
@@ -22,16 +23,18 @@ const GenreList = () => {
       }
     };
     getData();
-  }, []);
+  }, [page]);
   return (
     <>
       <div>
-        <ul
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        <ul className="grid grid-cols-1 mb-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {data.map((item, i) => (
             <CardList item={item} key={i} />
           ))}
         </ul>
+        <div className="flex justify-center mb-10">
+          <Pagination />
+        </div>
       </div>
     </>
   );

@@ -1,11 +1,14 @@
 import React from "react";
 import Routers from "./routers/Routers";
-
+import { Provider } from "react-redux";
+import store from "./store";
 const App = () => {
   return (
-    <div className="mx-4 mx-auto">
-      <Routers />
-    </div>
+    <Provider store={store}>
+      <div className="bg-white mx-4 mx-auto" id="changeTheme">
+        <Routers />
+      </div>
+    </Provider>
   );
 };
 

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const GenresList = () => {
+  const page = useSelector((state) => state.page.value);
   const navigate = useNavigate();
   const genreName = useParams();
   const genreType = genreName.genre.toLowerCase();
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const getData = async () => {
       try {
@@ -28,7 +29,9 @@ const GenresList = () => {
       {data.map((genre) => (
         <ul>
           <li key={genre.id}>
-            <Link to={`/${genreType}/${genre.name}/${genre.id}`}>{genre.name}</Link>
+            <Link to={`/${genreType}/${genre.name}/${genre.id}/page=${page}`}>
+              {genre.name}
+            </Link>
           </li>
         </ul>
       ))}
