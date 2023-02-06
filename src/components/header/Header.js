@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DarkModeSwitch from "./DarkModeSwitch";
+
 const Header = () => {
+  const [clicked, setClicked] = useState(false);
+  const sideNav = document.getElementById("sideNavigation");
+  const container = document.getElementById("container");
+
+  const controlSideMenu = () => {
+    setClicked(!clicked);
+
+    if (clicked) {
+      sideNav.classList.remove("hidden");
+      container.classList.add("grid-cols-6");
+    } else {
+      sideNav.classList.add("hidden");
+      container.classList.remove("grid-cols-6");
+    }
+  };
+
   return (
-    <nav className="bg-white border-gray-200 px-4 lg:px-6   py-2.5 dark:bg-gray-800">
+    <nav className="bg-gray-200 border-gray-200 px-4 lg:px-6   py-2.5 dark:bg-slate-900">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <div className="flex">
           {" "}
@@ -61,7 +78,10 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <DarkModeSwitch />
+        <div className="mb-5 hidden lg:block">
+          <DarkModeSwitch />
+        </div>
+
         {/*HAMBURGER MENU */}
         <div className="flex items-start lg:order-2">
           <button
@@ -70,6 +90,7 @@ const Header = () => {
             className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
+            onClick={() => controlSideMenu()}
           >
             <span className="sr-only">Open main menu</span>
             <svg

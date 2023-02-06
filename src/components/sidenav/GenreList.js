@@ -1,42 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 import CardList from "../container/CardList";
 import Pagination from "../pages/Pagination";
-import { useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
+import { sendDetails } from "../../setup/actions/dataAction";
 
 const GenreList = () => {
-  const page = useSelector((state) => state.page.value);
-  console.log("GENRE  LIST", page);
-  const { genre, name, id } = useParams();
+  const dispatch = useDispatch();
+  const { genre, name, id, page } = useParams();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const newPage = page.split("=")[1];
 
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await fetch(
-          `https://api.themoviedb.org/3/discover/${genre}?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${id}&page=${page}`
+          `https://api.themoviedb.org/3/discover/${genre}?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${id}&page=${newPage}`
         );
         const res2 = await res.json();
         setData(res2.results);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
     getData();
-  }, [page]);
+  }, [page, id]);
   return (
-    <>
-      <div>
-        <ul className="grid grid-cols-1 mb-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {data.map((item, i) => (
-            <CardList item={item} key={i} />
-          ))}
-        </ul>
-        <div className="flex justify-center mb-10">
-          <Pagination />
+    <div className={!data.length > 0 ? "h-screen" : "h-full"}>
+      {!loading && (
+        <div>
+          <ul className="grid grid-cols-1  mx-5 my-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {data.map((item, i) => (
+              <Link
+                to={`/${genre}/${name}/${id}/details/${item.title}`}
+                onClick={() => dispatch(sendDetails(item))}
+              >
+                <CardList item={item} key={i} />
+              </Link>
+            ))}
+          </ul>
+          <div className="flex justify-center mb-10">
+            {data.length > 0 && <Pagination page={newPage} />}
+          </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 

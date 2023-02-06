@@ -1,15 +1,23 @@
 import React from "react";
-import Discover from "../Discover";
 import Carousel from "./Carousel";
 
+import Trending from "./slider/Trending";
+import DiscoverMovie from "./slider/DiscoverMovie";
+import DiscoverSeries from "./slider/DiscoverSeries";
+import Title from "./slider/Title";
 const index = () => {
   return (
-    <div>
+    <div className="my-8 h-full">
       <Carousel />
-      <div>Trending Movies</div>
-      <div>Discover Movies</div>
-      <div>Discover Tv series</div>
-      <Discover />
+
+      <Title title={`Trending Movies`} />
+      <Trending />
+
+      <Title title={`Discover Movies`} />
+      <DiscoverMovie />
+
+      <Title title={`Discover Tv Series`} />
+      <DiscoverSeries />
     </div>
   );
 };

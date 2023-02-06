@@ -5,7 +5,7 @@ import store from "./store";
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="bg-white mx-4 mx-auto" id="changeTheme">
+      <div className="dark transition duration-500 mx-auto h-full" id="changeTheme">
         <Routers />
       </div>
     </Provider>

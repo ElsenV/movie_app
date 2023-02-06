@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import Reducers from "./reducers/Reducers";
+import DataReducers from "./reducers/DataReducers";
 
 export const indexReducers = combineReducers({
-  page: Reducers,
+  details: DataReducers,
 });

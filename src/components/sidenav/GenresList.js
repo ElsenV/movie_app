@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
 
 const GenresList = () => {
-  const page = useSelector((state) => state.page.value);
-  const navigate = useNavigate();
   const genreName = useParams();
   const genreType = genreName.genre.toLowerCase();
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -24,12 +22,14 @@ const GenresList = () => {
   }, [genreType]);
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>{"<"}</button>
+    <div className="h-screen">
       {data.map((genre) => (
         <ul>
-          <li key={genre.id}>
-            <Link to={`/${genreType}/${genre.name}/${genre.id}/page=${page}`}>
+          <li
+            key={genre.id}
+            className="pt-1.5 mx-10 hover:bg-gray-200 dark:hover:bg-gray-500 dark:text-white  lg:text-lg"
+          >
+            <Link to={`/${genreType}/${genre.name}/${genre.id}/page=${1}`}>
               {genre.name}
             </Link>
           </li>
@@ -40,5 +40,3 @@ const GenresList = () => {
 };
 
 export default GenresList;
-
-// https://api.themoviedb.org/3/discover/movie?api_key=###&with_genres=28
