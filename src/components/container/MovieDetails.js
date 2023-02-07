@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const MovieDetails = () => {
   const item = useSelector((state) => state.details.item);
-  
+
   return (
     <div>
       <div className=" w-full h-screen relative pb-4 lg:pb-0">
@@ -14,8 +14,7 @@ const MovieDetails = () => {
               item.backdrop_path || item.known_for.backdrop_path
             })`,
           }}
-        >
-        </div>
+        ></div>
         <div className="w-full h-full flex absolute grid grid-cols-3 pt-1 lg:pt-10">
           {" "}
           <div className="  mx-auto  lg:ml-[10%]  opacity-90 col-span-3 lg:col-span-1  ">
@@ -62,7 +61,8 @@ const MovieDetails = () => {
               </span>
             </p>
             <p className="pt-2 text-sm sm:text-lg  ">
-              Overview - {item.overview ? item.overview : "N/A"}
+              Overview -{" "}
+              {item.overview ? item.overview.substring(0, 180)+' ...' : "N/A"}
             </p>
           </div>
         </div>

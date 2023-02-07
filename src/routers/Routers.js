@@ -24,7 +24,7 @@ const Routers = () => {
     <BrowserRouter>
       <Header />
       <div
-        className="grid grid-cols-5 lg:grid-cols-6 dark:bg-gray-700 "
+        className="grid grid-cols-5 lg:grid-cols-6 dark:bg-gray-700 h-auto"
         id="container"
       >
         <div

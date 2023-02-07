@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import DarkModeSwitch from "./DarkModeSwitch";
+// import DarkModeSwitch from "./DarkModeSwitch";
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
@@ -31,14 +31,14 @@ const Header = () => {
               alt="Flowbite Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Entertainment
+              Moviebook
             </span>
           </Link>
           <div
             className="hidden mx-5 items-center w-full lg:flex lg:w-auto lg:order-1"
             id="mobile-menu-2"
           >
-            <ul className="flex mx-5 flex-col mt-4 font-medium lg:flex-row lg:space-x-4 lg:mt-0">
+            <ul className="flex mx-5 flex-col mt-4 font-medium lg:flex-row lg:space-x-4 lg:mt-0 text-sm md:text-lg">
               <li>
                 <Link
                   to={"/genre/movie"}
@@ -78,9 +78,9 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <div className="mb-5 hidden lg:block">
+        {/* <div className="mb-5 hidden lg:block">
           <DarkModeSwitch />
-        </div>
+        </div> */}
 
         {/*HAMBURGER MENU */}
         <div className="flex items-start lg:order-2">
