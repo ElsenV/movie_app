@@ -1,7 +1,7 @@
 import React from "react";
 
 const CardList = ({ item }) => {
-  console.log(item);
+
   return (
     <div className="w-full bg-center  bg-cover">
       <div className="group overflow-hidden relative cursor-pointer items-center justify-center  transition-shadow hover:shadow-xl hover:shadow-black/30  max-w-full h-full rounded-sm ">
