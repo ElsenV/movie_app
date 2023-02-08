@@ -9,7 +9,7 @@ const AboutPeopleSearch = () => {
   const item = useSelector((state) => state.details.item);
 
   return (
-    <div className="h-screen">
+    <div className="h-auto md:h-screen">
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mx-5 my-10">
         {item.known_for.map((item, i) => (
           <Link

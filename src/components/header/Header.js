@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import DarkModeSwitch from "./DarkModeSwitch";
 
@@ -9,15 +9,21 @@ const Header = () => {
 
   const controlSideMenu = () => {
     setClicked(!clicked);
-
-    if (clicked) {
-      sideNav.classList.remove("hidden");
-      container.classList.add("grid-cols-6");
-    } else {
-      sideNav.classList.add("hidden");
-      container.classList.remove("grid-cols-6");
-    }
   };
+
+  useEffect(() => {
+    try {
+      if (clicked) {
+        sideNav.classList.remove("hidden");
+        container.classList.add("grid-cols-6");
+      } else {
+        sideNav.classList.add("hidden");
+        container.classList.remove("grid-cols-6");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [clicked]);
 
   return (
     <nav className="bg-gray-200 border-gray-200 px-4 lg:px-6   py-2.5 dark:bg-slate-900">

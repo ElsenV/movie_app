@@ -3,18 +3,19 @@ import { useSelector } from "react-redux";
 
 const MovieDetails = () => {
   const item = useSelector((state) => state.details.item);
-
+  console.log("details", item);
   return (
     <div>
       <div className=" w-full h-screen relative pb-4 lg:pb-0">
-        <div
-          className="flex justify-center items-center bg-center bg-cover w-full bg-gray-900 h-full  opacity-10 absolute"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w300/${
-              item.backdrop_path || item.known_for.backdrop_path
-            })`,
-          }}
-        ></div>
+          <div
+            className="flex justify-center items-center bg-center bg-cover w-full bg-gray-900 h-full  opacity-10 absolute"
+            style={{
+              backgroundImage: `url(https://image.tmdb.org/t/p/w300/${
+                item.backdrop_path || item.known_for.backdrop_path
+              })`,
+            }}
+          ></div>
+
         <div className="w-full h-full flex absolute grid grid-cols-3 pt-1 lg:pt-10">
           {" "}
           <div className="  mx-auto  lg:ml-[10%]  opacity-90 col-span-3 lg:col-span-1  ">
@@ -62,7 +63,7 @@ const MovieDetails = () => {
             </p>
             <p className="pt-2 text-sm sm:text-lg  ">
               Overview -{" "}
-              {item.overview ? item.overview.substring(0, 180)+' ...' : "N/A"}
+              {item.overview ? item.overview.substring(0, 180) + " ..." : "N/A"}
             </p>
           </div>
         </div>

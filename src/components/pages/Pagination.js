@@ -9,7 +9,7 @@ const Pagination = ({ page }) => {
   return (
     <div>
       <nav aria-label="Page navigation example">
-        <ul class="inline-flex -space-x-px">
+        <ul className="inline-flex -space-x-px ">
           {/* Prev Page Button */}
           {newPage > 1 && (
             <li>
@@ -17,7 +17,7 @@ const Pagination = ({ page }) => {
                 to={`/${genre}/${name}/${id}/page=${
                   newPage > 1 ? newPage - 1 : 1
                 }`}
-                class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="px-2 sm:px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 Previous
               </Link>
@@ -28,7 +28,7 @@ const Pagination = ({ page }) => {
           <li>
             <Link
               to={`/${genre}/${name}/${id}/page=${1}`}
-              class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white "
+              className="px-1.5 sm:px-3  py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white "
             >
               {1}
             </Link>
@@ -36,7 +36,7 @@ const Pagination = ({ page }) => {
           {/* Dotes have Smaller page*/}
           {newPage > 3 && (
             <li>
-              <Link class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <Link className="px-1.5 sm:px-3  py-2 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 ...
               </Link>
             </li>
@@ -47,7 +47,7 @@ const Pagination = ({ page }) => {
             <li>
               <Link
                 to={`/${genre}/${name}/${id}/page=${newPage - 1}`}
-                class="px-3 py-2   leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="px-1.5 sm:px-3  py-2   leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 {newPage - 1}
               </Link>
@@ -59,7 +59,7 @@ const Pagination = ({ page }) => {
             <li>
               <Link
                 to={`/${genre}/${name}/${id}/page=${newPage}`}
-                class="px-3 py-2 leading-tight text-gray-500 bg-green-100 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="px-1.5 sm:px-3  py-2 leading-tight text-gray-500 bg-green-100 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 {newPage}
               </Link>
@@ -70,7 +70,7 @@ const Pagination = ({ page }) => {
             <li>
               <Link
                 to={`/${genre}/${name}/${id}/page=${newPage + 1}`}
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="px-1.5 sm:px-3  py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 {newPage + 1}
               </Link>
@@ -80,7 +80,7 @@ const Pagination = ({ page }) => {
           {/* Dotes have Bigger page*/}
           {newPage < totalPages - 2 && (
             <li>
-              <Link class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <Link className="px-1.5 sm:px-3  py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 ...
               </Link>
             </li>
@@ -89,7 +89,7 @@ const Pagination = ({ page }) => {
           <li>
             <Link
               to={`/${genre}/${name}/${id}/page=${totalPages}`}
-              class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="px-1.5 sm:px-3  py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               {totalPages}
             </Link>
@@ -102,7 +102,7 @@ const Pagination = ({ page }) => {
                 to={`/${genre}/${name}/${id}/page=${
                   newPage < totalPages ? newPage + 1 : newPage
                 }`}
-                class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className=" px-2 sm:px-3  py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 Next
               </Link>

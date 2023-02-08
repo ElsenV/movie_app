@@ -20,15 +20,16 @@ import NotFound from "../components/pages/NotFound";
 import AboutPeopleSearch from "../components/pages/search/AboutPeopleSearch";
 
 const Routers = () => {
+ 
   return (
     <BrowserRouter>
       <Header />
       <div
-        className="grid grid-cols-5 lg:grid-cols-6 dark:bg-gray-700 h-auto"
+        className="grid grid-cols-5 lg:grid-cols-6 dark:bg-gray-700 h-auto "
         id="container"
       >
         <div
-          className="col-span-6  sm:col-span-1  hidden lg:block h-full"
+          className="col-span-6 hidden lg:block sm:col-span-1  h-full w-full"
           id="sideNavigation"
         >
           <SideNav />

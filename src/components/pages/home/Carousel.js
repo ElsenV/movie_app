@@ -10,7 +10,7 @@ const Carousel = () => {
   const [slider, setSlider] = useState([]);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-
+  
   const prevSlide = () => {
     setCurrentIndex(() =>
       currentIndex === 0 ? slider.length - 1 : currentIndex - 1
@@ -41,12 +41,13 @@ const Carousel = () => {
         const res2 = await res.json();
         setSlider(res2.results);
         setLoading(false);
+        
       } catch (error) {
         console.log(error);
       }
     };
     getData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -63,8 +64,7 @@ const Carousel = () => {
                 backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${slider[currentIndex].backdrop_path})`,
               }}
               className="  w-full h-full rounded-2xl bg-center delay-150 bg-cover duration-700"
-            >
-            </div>
+            ></div>
           </Link>
 
           <div className="hidden group-hover:block absolute top-[35%] -translate-x-0 translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
