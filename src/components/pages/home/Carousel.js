@@ -62,7 +62,7 @@ const Carousel = () => {
               style={{
                 backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${slider[currentIndex].backdrop_path})`,
               }}
-              className="  w-full h-full rounded-2xl bg-center bg-cover duration-500"
+              className="  w-full h-full rounded-2xl bg-center bg-cover duration-700"
             ></div>
           </Link>
 
