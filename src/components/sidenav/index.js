@@ -22,13 +22,15 @@ const Index = () => {
         <ul className="relative pt-4">
           {sideMenu.map((item, i) => (
             <li className="mb-5 cursor-pointer hover:bg-gray-200 dark:active:bg-gray-900 dark:hover:bg-gray-700 sm:text-md md:text-lg lg:text-2xl ">
-              <Link to={`${item.name}`}></Link>
-              <div className="flex items-center ">
-                <div className="text-lg sm:text-xl  lg:text-2xl pr-1.5 md:pr-3">
-                  {item.icon}
+              <Link to={`${item.name}`}>
+                {console.log(item.name)}
+                <div className="flex items-center ">
+                  <div className="text-lg sm:text-xl  lg:text-2xl pr-1.5 md:pr-3">
+                    {item.icon}
+                  </div>
+                  <div>{item.name}</div>
                 </div>
-                <div>{item.name}</div>
-              </div>
+              </Link>
             </li>
           ))}
           {genres.map((genre, i) => (
@@ -54,8 +56,8 @@ const Index = () => {
 
 export default Index;
 
-
-{/* <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+{
+  /* <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
 	<div class="relative py-3 sm:max-w-xl sm:mx-auto">
 		<a href="#" class="font-display max-w-sm text-2xl font-bold leading-tight">
 			<span class="link link-underline link-underline-black text-black"> Hover to See the Effect </span>
@@ -82,4 +84,5 @@ export default Index;
 		background-size: 100% 3px;
 		background-position: 0 100%
 	}
-</style> */}
+</style> */
+}
