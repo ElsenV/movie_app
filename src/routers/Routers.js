@@ -34,7 +34,7 @@ const Routers = () => {
         >
           <SideNav />
         </div>
-        <div className="col-span-6 sm:col-span-5 ">
+        <div className="col-span-6 sm:col-span-5 overflow-hidden">
           <Routes>
             {["/", "/home"].map((path) => (
               <Route path={path} element={<Home />} />

@@ -22,8 +22,8 @@ const Discover = () => {
     getData();
   }, []);
   return (
-    <div className={data.length > 0 ? "h-full" : "h-screen"}>
-      <ul className="grid grid-cols-1 mx-5 my-10  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div className={`${data.length > 0 ?`h-full` : `h-screen`}   translate-y-[100%] ${data.length > 0 && `translate-y-1 transition-all duration-1000 ease-in-out`}`}>
+      <ul className={`grid grid-cols-1 mx-5 my-10  sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-5 gap-4`}>
         {data.map((item, i) => (
           <Link
             to={`/details/${item.name || item.title || item.original_name}`}

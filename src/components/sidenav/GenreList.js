@@ -30,7 +30,7 @@ const GenreList = () => {
     getData();
   }, [page, id]);
   return (
-    <div className={!data.length > 0 ? "h-screen" : "h-full"}>
+    <div className={`${data.length > 0 ? "h-full" : "h-screen"} translate-y-[100%] ${data.length > 0 && `translate-y-1 transition-all duration-1000 ease-in-out`}`}>
       {!loading && (
         <div>
           <ul className="grid grid-cols-1  mx-5 my-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">

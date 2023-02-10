@@ -27,30 +27,43 @@ const TvSearch = () => {
     getSearchedMovie();
   }, [name]);
   return (
-    <div className={getData.length > 0 ? "h-full" : "h-screen"}>
-      {!loading && (
-        <div>
-          <SearchForm />
-          {!getData.length > 0 && (
-            <h1 className="flex justify-center text-gray-900 dark:text-gray-200 text-lg md:text-2xl mt-10">
-              Data Not Found
-            </h1>
-          )}
-          <ul className="grid grid-cols-1 mx-5 my-10  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {getData.map((item, i) => (
-              <Link
-                to={`/details/${item.name || item.title || item.original_name}`}
-                onClick={() => dispatch(sendDetails(item))}
-              >
-                {<CardList item={item} key={i} />}
-              </Link>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+    <>
+      <SearchForm />
+      <div
+        className={`${
+          getData.length > 0 ? "h-full" : "h-screen"
+        } translate-y-[100%] ${
+          getData.length > 0 &&
+          `translate-y-1 transition-all duration-1000 ease-in-out`
+        }`}
+      >
+        {!loading && (
+          <div>
+            {!getData.length > 0 && (
+              <h1 className="flex justify-center text-gray-900 dark:text-gray-200 text-lg md:text-2xl mt-10">
+                Data Not Found
+              </h1>
+            )}
+
+            <ul
+              className={`grid grid-cols-1 mx-5 my-10  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 `}
+            >
+              {getData.map((item, i) => (
+                <Link
+                  to={`/details/${
+                    item.name || item.title || item.original_name
+                  }`}
+                  onClick={() => dispatch(sendDetails(item))}
+                >
+                  {<CardList item={item} key={i} />}
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
 export default TvSearch;
-

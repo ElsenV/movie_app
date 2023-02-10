@@ -10,7 +10,7 @@ const Carousel = () => {
   const [slider, setSlider] = useState([]);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  
+
   const prevSlide = () => {
     setCurrentIndex(() =>
       currentIndex === 0 ? slider.length - 1 : currentIndex - 1
@@ -41,7 +41,6 @@ const Carousel = () => {
         const res2 = await res.json();
         setSlider(res2.results);
         setLoading(false);
-        
       } catch (error) {
         console.log(error);
       }
@@ -52,7 +51,7 @@ const Carousel = () => {
   return (
     <>
       {!loading && (
-        <div className="flex justify-start max-w-[80%] h-[250px] md:h-[380px] w-full duration-500  mx-auto relative group hidden sm:block cursor-pointer">
+        <div className="flex justify-start max-w-[80%] h-[250px] md:h-[380px] w-full  mx-auto relative group hidden sm:block cursor-pointer">
           <Link
             to={`/details/${slider[currentIndex].name}`}
             onClick={() => {
@@ -63,7 +62,7 @@ const Carousel = () => {
               style={{
                 backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${slider[currentIndex].backdrop_path})`,
               }}
-              className="  w-full h-full rounded-2xl bg-center delay-150 bg-cover duration-700"
+              className="  w-full h-full rounded-2xl bg-center bg-cover duration-500"
             ></div>
           </Link>
 

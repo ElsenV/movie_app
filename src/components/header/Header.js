@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import DarkModeSwitch from "./DarkModeSwitch";
-
+import icon from "../../images/icon.png"
 const Header = () => {
   const [clicked, setClicked] = useState(false);
   const sideNav = document.getElementById("sideNavigation");
@@ -32,19 +32,21 @@ const Header = () => {
           {" "}
           <Link to={"/"} className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+            
+            src={icon}
+              className="mr-3 h-5 sm:h-7"
+              alt="Movie and series book"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Moviebook
+            <span className="self-center text-xl md:text-2xl lg:text-3xl font-semibold whitespace-nowrap dark:text-white">
+              Films<span className="text-yellow-400 ">book</span>
+              
             </span>
           </Link>
           <div
             className="hidden mx-5 items-center w-full lg:flex lg:w-auto lg:order-1"
             id="mobile-menu-2"
           >
-            <ul className="flex mx-5 flex-col mt-4 font-medium lg:flex-row lg:space-x-4 lg:mt-0 text-sm md:text-lg">
+            {/* <ul className="flex mx-5 flex-col mt-4 font-medium lg:flex-row lg:space-x-4 lg:mt-0 text-sm md:text-lg">
               <li>
                 <Link
                   to={"/genre/movie"}
@@ -81,7 +83,7 @@ const Header = () => {
                   Trending
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
         {/* <div className="mb-5 hidden lg:block">

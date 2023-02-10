@@ -22,12 +22,19 @@ const GenresList = () => {
   }, [genreType]);
 
   return (
-    <div className="h-screen">
+    <div
+      className={`${
+         "h-full"
+      } -translate-y-[100%] ${
+        data.length > 0 &&
+        `-translate-y-1 transition-all duration-1000 ease-in-out`
+      } py-4`}
+    >
       {data.map((genre) => (
         <ul>
           <li
             key={genre.id}
-            className="pt-1.5 mx-10 hover:bg-gray-200 dark:hover:bg-gray-500 dark:text-white  lg:text-lg"
+            className="pt-2 mx-10 hover:bg-gray-200 dark:hover:bg-gray-500 dark:text-white  lg:text-lg"
           >
             <Link to={`/${genreType}/${genre.name}/${genre.id}/page=${1}`}>
               {genre.name}
