@@ -21,14 +21,16 @@ const Index = () => {
       <div className="bg-gray-100 dark:text-gray-200 dark:bg-slate-800 pl-2 sm:pl-1 md:pl-3 lg:pl-6 xl:pl-8 h-full text-md sm:text-lg md:text-xl lg:text-2xl w-full ">
         <ul className="relative pt-4">
           {sideMenu.map((item, i) => (
-            <li className="mb-5 cursor-pointer hover:bg-gray-200 dark:active:bg-gray-900 dark:hover:bg-gray-700 sm:text-md md:text-lg lg:text-2xl ">
+            <li className="mb-5 cursor-pointer  sm:text-md md:text-lg lg:text-2xl ">
               <Link to={`${item.name}`}>
                 {console.log(item.name)}
-                <div className="flex items-center ">
+                <div className="flex items-center   ">
                   <div className="text-lg sm:text-xl  lg:text-2xl pr-1.5 md:pr-3">
                     {item.icon}
                   </div>
-                  <div>{item.name}</div>
+                  <div className="relative inline-block  before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-yellow-500 dark:before:bg-yellow-400 hover:before:w-[100%] before:transition-all before:duration-200 before:ease-out">
+                    {item.name}
+                  </div>
                 </div>
               </Link>
             </li>
@@ -36,14 +38,16 @@ const Index = () => {
           {genres.map((genre, i) => (
             <li
               key={i}
-              className=" mb-5 cursor-pointer hover:bg-gray-200 dark:active:bg-gray-900 dark:hover:bg-gray-700 sm:text-md md:text-lg lg:text-2xl "
+              className=" mb-5 cursor-pointer  sm:text-md md:text-lg lg:text-2xl "
             >
               <Link to={`genre/${genre.name}`} state={{ genre: genre }}>
                 <div className="flex items-center ">
                   <div className="text-lg sm:text-xl  lg:text-2xl pr-1.5 md:pr-3">
                     {genre.icon}
                   </div>
-                  <div>{genre.name}</div>
+                  <div className="relative inline-block  before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-yellow-500 dark:before:bg-yellow-400 hover:before:w-[100%] before:transition-all before:duration-200 before:ease-out">
+                    {genre.name}
+                  </div>
                 </div>
               </Link>
             </li>

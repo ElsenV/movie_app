@@ -34,7 +34,7 @@ const GenresList = () => {
         <ul>
           <li
             key={genre.id}
-            className="pt-2 mx-10 hover:bg-gray-200 dark:hover:bg-gray-500 dark:text-white  lg:text-lg"
+            className="pt-2 mx-10  dark:text-white  lg:text-lg relative inline-block  before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-yellow-500 dark:before:bg-yellow-400 hover:before:w-[100%] before:transition-all before:duration-200 before:ease-out"
           >
             <Link to={`/${genreType}/${genre.name}/${genre.id}/page=${1}`}>
               {genre.name}

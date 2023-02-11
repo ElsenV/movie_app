@@ -29,6 +29,12 @@ const PeopleSearch = () => {
 
   return (
     <>
+      <SearchForm />
+      {!loading && !getData.length > 0 && (
+        <h1 className="flex justify-center text-gray-900 dark:text-gray-200 text-lg md:text-2xl mt-10">
+          Data Not Found
+        </h1>
+      )}
       <div
         className={`${
           getData.length > 0 ? "h-full" : "h-screen"
